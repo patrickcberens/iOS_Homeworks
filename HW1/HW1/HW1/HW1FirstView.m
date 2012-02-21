@@ -19,6 +19,15 @@
     return self;
 }
 
+-(void) awakeFromNib
+{
+   UILabel *label = [[UILabel alloc] initWithFrame:self.bounds];
+   label.text = @"Full credit";
+   label.backgroundColor = [UIColor clearColor];
+   [self addSubview:label];
+}
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
