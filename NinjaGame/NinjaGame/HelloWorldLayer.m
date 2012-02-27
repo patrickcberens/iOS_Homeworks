@@ -6,6 +6,7 @@
 //  Copyright __MyCompanyName__ 2012. All rights reserved.
 //
 
+//http://www.raywenderlich.com/352/how-to-make-a-simple-iphone-game-with-cocos2d-tutorial
 
 // Import the interfaces
 #import "HelloWorldLayer.h"
