@@ -22,7 +22,7 @@
 -(void) awakeFromNib
 {
    UILabel *label = [[UILabel alloc] initWithFrame:self.bounds];
-   label.text = @"Full credit";
+   label.text = @"Full credit - SSH test...";
    label.backgroundColor = [UIColor clearColor];
    [self addSubview:label];
 }
