@@ -86,9 +86,9 @@
     if(sprite.tag == 1){
         [_targets removeObject:sprite];
         
-        GameOverScene *gameOverScene = [GameOverScene node];
-        [gameOverScene.layer.label setString:@"You lose :["];
-        [[CCDirector sharedDirector] replaceScene:gameOverScene];
+        //GameOverScene *gameOverScene = [GameOverScene node];
+        //[gameOverScene.layer.label setString:@"You lose :["];
+        //[[CCDirector sharedDirector] replaceScene:gameOverScene];
     }
     else if(sprite.tag == 2)
         [_projectiles removeObject:sprite];
@@ -133,17 +133,15 @@
 	return YES;
 }
 
-//-(void)ccTouchEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     NSLog(@"Detected Touch Ended");
-    //Choose one of the touches to work with
-    //UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     
     //Set up initial location of projectile
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    CCSprite *projectile = [CCSprite spriteWithFile:@"Projectile.png" rect:CGRectMake(0, 0, 20, 20)];
+    //CCSprite *projectile = [CCSprite spriteWithFile:@"Projectile.png" rect:CGRectMake(0, 0, 20, 20)];
+    CCSprite *projectile = [CCSprite spriteWithFile:@"Projectile2.jpeg"];
     projectile.position = ccp(20, winSize.height/2);
     projectile.tag = 2;
     [_projectiles addObject:projectile];
@@ -173,6 +171,12 @@
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"pew-pew-lei.caf"];
     
+    //Rotate turret
+    float angleRadians = atanf((float)offRealY / (float)offRealX);
+    float angleDegrees = CC_RADIANS_TO_DEGREES(angleRadians);
+    float cocosAngle = -1 * angleDegrees;
+    _player.rotation = cocosAngle;
+    
     //Move projectile to actual endpoint
     [projectile runAction:[CCSequence actions:
                            [CCMoveTo actionWithDuration:realMoveDuration position:realDest],
@@ -193,13 +197,17 @@
         self.isTouchEnabled = YES;
         NSLog(@"Entered init");
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
-        CCSprite *player = [CCSprite spriteWithFile:@"Player.png" rect:CGRectMake(0, 0, 27, 40)];
-        player.position = ccp(player.contentSize.width/2, winSize.height/2);
+        //CCSprite *player = [CCSprite spriteWithFile:@"Player2.jpeg"];
+        //player.position = ccp(player.contentSize.width/2, winSize.height/2);
+        //[self addChild:player];
+        _player = [[CCSprite spriteWithFile:@"Player2.jpeg"] retain];
+        _player.position = ccp(_player.contentSize.width/2, winSize.height/2);
+        [self addChild:_player];
         
         _targets = [[NSMutableArray alloc] init];
         _projectiles = [[NSMutableArray alloc] init];
         
-        [self addChild:player];
+        
         [self schedule:@selector(gameLogic:) interval:1.0];
         [self schedule:@selector(update:)];
         
@@ -221,5 +229,7 @@
     _targets = nil;
     [_projectiles release];
     _projectiles = nil;
+    [_player release];
+    _player = nil;
 }
 @end

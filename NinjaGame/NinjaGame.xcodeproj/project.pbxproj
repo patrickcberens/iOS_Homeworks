@@ -127,6 +127,8 @@
 		F1AB4C2D14FB562E0034026D /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = F1AB4C2914FB562E0034026D /* Player.png */; };
 		F1AB4C2E14FB562E0034026D /* Projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = F1AB4C2A14FB562E0034026D /* Projectile.png */; };
 		F1AB4C2F14FB562E0034026D /* Target.png in Resources */ = {isa = PBXBuildFile; fileRef = F1AB4C2B14FB562E0034026D /* Target.png */; };
+		F1DF3E7314FED34400BB097E /* Player2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F1DF3E7214FED34400BB097E /* Player2.jpeg */; };
+		F1DF3E7614FED34900BB097E /* Projectile2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F1DF3E7514FED34900BB097E /* Projectile2.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -371,6 +373,8 @@
 		F1AB4C2914FB562E0034026D /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
 		F1AB4C2A14FB562E0034026D /* Projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Projectile.png; sourceTree = "<group>"; };
 		F1AB4C2B14FB562E0034026D /* Target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Target.png; sourceTree = "<group>"; };
+		F1DF3E7214FED34400BB097E /* Player2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Player2.jpeg; sourceTree = "<group>"; };
+		F1DF3E7514FED34900BB097E /* Projectile2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Projectile2.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -449,7 +453,9 @@
 				F1AB4C2814FB562E0034026D /* pew-pew-lei.caf */,
 				F1AB4C2914FB562E0034026D /* Player.png */,
 				F1AB4C2A14FB562E0034026D /* Projectile.png */,
+				F1DF3E7514FED34900BB097E /* Projectile2.jpeg */,
 				F1AB4C2B14FB562E0034026D /* Target.png */,
+				F1DF3E7214FED34400BB097E /* Player2.jpeg */,
 				F1AB4AC914FB54440034026D /* Default.png */,
 				F1AB4ACB14FB54440034026D /* fps_images.png */,
 				F1AB4ACD14FB54440034026D /* Icon-72.png */,
@@ -838,6 +844,8 @@
 				F1AB4C2D14FB562E0034026D /* Player.png in Resources */,
 				F1AB4C2E14FB562E0034026D /* Projectile.png in Resources */,
 				F1AB4C2F14FB562E0034026D /* Target.png in Resources */,
+				F1DF3E7314FED34400BB097E /* Player2.jpeg in Resources */,
+				F1DF3E7614FED34900BB097E /* Projectile2.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

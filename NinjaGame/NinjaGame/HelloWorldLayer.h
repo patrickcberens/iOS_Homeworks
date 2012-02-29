@@ -13,6 +13,7 @@
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayerColor
 {
+    CCSprite *_player;
     NSMutableArray *_targets;
     NSMutableArray *_projectiles;
     int _projectilesDestroyed;
