@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD1B091214FEB4580077A766 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1B091114FEB4580077A766 /* GameOverScene.m */; };
 		F1AB4AB814FB54440034026D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AB4AB714FB54440034026D /* QuartzCore.framework */; };
 		F1AB4ABA14FB54440034026D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AB4AB914FB54440034026D /* OpenGLES.framework */; };
 		F1AB4ABC14FB54440034026D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AB4ABB14FB54440034026D /* OpenAL.framework */; };
@@ -129,6 +130,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD1B091014FEB4580077A766 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
+		CD1B091114FEB4580077A766 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		F1AB4AB314FB54440034026D /* NinjaGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NinjaGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1AB4AB714FB54440034026D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F1AB4AB914FB54440034026D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -434,6 +437,8 @@
 				F1AB4AC814FB54440034026D /* Resources */,
 				F1AB4ADC14FB54440034026D /* libs */,
 				F1AB4C1514FB54460034026D /* Supporting Files */,
+				CD1B091014FEB4580077A766 /* GameOverScene.h */,
+				CD1B091114FEB4580077A766 /* GameOverScene.m */,
 			);
 			path = NinjaGame;
 			sourceTree = "<group>";
@@ -941,6 +946,7 @@
 				F1AB4C1B14FB54460034026D /* AppDelegate.m in Sources */,
 				F1AB4C1E14FB54460034026D /* RootViewController.m in Sources */,
 				F1AB4C2114FB54460034026D /* HelloWorldLayer.m in Sources */,
+				CD1B091214FEB4580077A766 /* GameOverScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1034,6 +1040,7 @@
 				F1AB4C2714FB54460034026D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

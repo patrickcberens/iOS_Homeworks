@@ -10,6 +10,8 @@
 
 // Import the interfaces
 #import "HelloWorldLayer.h"
+#import "SimpleAudioEngine.h"
+#import "GameOverScene.h"
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -29,13 +31,76 @@
 	return scene;
 }
 
+-(void)update:(ccTime)dt{
+    NSMutableArray *projectilesToDelete = [[NSMutableArray alloc] init];
+    
+    //Create rectangles around projectiles and targets.
+    //Iterate through each projectile, check if intersects rectangle of target.
+    //-If intersects, delete target
+    for (CCSprite *projectile in _projectiles) {
+        CGRect projectileRect = CGRectMake(projectile.position.x - (projectile.contentSize.width/2), 
+                                           projectile.position.y - (projectile.contentSize.height/2), 
+                                           projectile.contentSize.width, 
+                                           projectile.contentSize.height);
+        
+        NSMutableArray *targetsToDelete = [[NSMutableArray alloc] init];
+        for (CCSprite *target in _targets) {
+            CGRect targetRect = CGRectMake(target.position.x - (target.contentSize.width/2), 
+                                           target.position.y - (target.contentSize.height/2), 
+                                           target.contentSize.width, 
+                                           target.contentSize.height);
+            
+            if (CGRectIntersectsRect(projectileRect, targetRect)) {
+                [targetsToDelete addObject:target];				
+            }						
+        }
+        
+        for (CCSprite *target in targetsToDelete) {
+            [_targets removeObject:target];
+            [self removeChild:target cleanup:YES];
+            
+            _projectilesDestroyed++;
+            if(_projectilesDestroyed > 4){ //Win
+                GameOverScene *gameOverScene = [GameOverScene node];
+                _projectilesDestroyed = 0;
+                [gameOverScene.layer.label setString:@"You win!"];
+                [[CCDirector sharedDirector] replaceScene:gameOverScene];
+            }
+        }
+        
+        if (targetsToDelete.count > 0) {    //Hit a target so delete projectile
+            [projectilesToDelete addObject:projectile];
+        }
+        [targetsToDelete release];
+    }
+    //Remove projectiles that collided with targets
+    for (CCSprite *projectile in projectilesToDelete) {
+        [_projectiles removeObject:projectile];
+        [self removeChild:projectile cleanup:YES];
+    }
+    [projectilesToDelete release];
+}
+
 -(void)spriteMoveFinished:(id)sender{
     CCSprite *sprite = (CCSprite *)sender;
+    if(sprite.tag == 1){
+        [_targets removeObject:sprite];
+        
+        GameOverScene *gameOverScene = [GameOverScene node];
+        [gameOverScene.layer.label setString:@"You lose :["];
+        [[CCDirector sharedDirector] replaceScene:gameOverScene];
+    }
+    else if(sprite.tag == 2)
+        [_projectiles removeObject:sprite];
+    
     [self removeChild:sprite cleanup:YES];
+    
 }
 -(void)addTarget{
     CCSprite *target = [CCSprite spriteWithFile:@"Target.png" rect:CGRectMake(0, 0, 27, 40)];
-    NSLog(@"addTarget");
+    target.tag = 1;
+    [_targets addObject:target];
+    
     //Determine where to spawn the target along Y-axis
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     int minY = target.contentSize.height/2;
@@ -60,12 +125,19 @@
     [target runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
     
 }
+-(void) registerWithTouchDispatcher
+{
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+	return YES;
+}
 
--(void)ccTouchBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    //-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
+//-(void)ccTouchEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     NSLog(@"Detected Touch Ended");
     //Choose one of the touches to work with
-    UITouch *touch = [touches anyObject];
+    //UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     
@@ -73,6 +145,8 @@
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CCSprite *projectile = [CCSprite spriteWithFile:@"Projectile.png" rect:CGRectMake(0, 0, 20, 20)];
     projectile.position = ccp(20, winSize.height/2);
+    projectile.tag = 2;
+    [_projectiles addObject:projectile];
     
     //Determine offset of location to projectile
     int offX = location.x - projectile.position.x;
@@ -97,10 +171,13 @@
     float velocity = 280/1; //480 pixels per 1 second
     float realMoveDuration = length/velocity;
     
+    [[SimpleAudioEngine sharedEngine] playEffect:@"pew-pew-lei.caf"];
+    
     //Move projectile to actual endpoint
     [projectile runAction:[CCSequence actions:
                            [CCMoveTo actionWithDuration:realMoveDuration position:realDest],
                            [CCCallFuncN actionWithTarget:self selector:@selector(spriteMoveFinished:)], nil]];
+    
 }
 
 -(void)gameLogic:(ccTime)dt{
@@ -118,8 +195,13 @@
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
         CCSprite *player = [CCSprite spriteWithFile:@"Player.png" rect:CGRectMake(0, 0, 27, 40)];
         player.position = ccp(player.contentSize.width/2, winSize.height/2);
+        
+        _targets = [[NSMutableArray alloc] init];
+        _projectiles = [[NSMutableArray alloc] init];
+        
         [self addChild:player];
         [self schedule:@selector(gameLogic:) interval:1.0];
+        [self schedule:@selector(update:)];
         
 		
 	}
@@ -135,5 +217,9 @@
 	
 	// don't forget to call "super dealloc"
 	[super dealloc];
+    [_targets release];
+    _targets = nil;
+    [_projectiles release];
+    _projectiles = nil;
 }
 @end
