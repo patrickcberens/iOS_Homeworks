@@ -135,55 +135,69 @@
 
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     NSLog(@"Detected Touch Ended");
+    
+    if(_nextProjectile != nil) return;
+    
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     
     //Set up initial location of projectile
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    //CCSprite *projectile = [CCSprite spriteWithFile:@"Projectile.png" rect:CGRectMake(0, 0, 20, 20)];
-    CCSprite *projectile = [CCSprite spriteWithFile:@"Projectile2.jpeg"];
-    projectile.position = ccp(20, winSize.height/2);
-    projectile.tag = 2;
-    [_projectiles addObject:projectile];
+    _nextProjectile = [[CCSprite spriteWithFile:@"Projectile2.jpeg"] retain];
+    _nextProjectile.position = ccp(20, winSize.height/2);
+    _nextProjectile.tag = 2;
     
+    NSLog(@"Added projectile");
     //Determine offset of location to projectile
-    int offX = location.x - projectile.position.x;
-    int offY = location.y - projectile.position.y;
+    int offX = location.x - _nextProjectile.position.x;
+    int offY = location.y - _nextProjectile.position.y;
     
     //Bail out if we are shooting down or backwards
-    if(offX <= 0) return;
-    
-    //Ok to add now - we've double checked position
-    [self addChild:projectile];
+    if(offX < 0) return;
     
     //Determine where we wish to shoot the projectile to
-    int realX = winSize.width + (projectile.contentSize.width/2);
+    int realX = winSize.width + (_nextProjectile.contentSize.width/2);
     float ratio = (float) offY / (float) offX;
-    int realY = (realX * ratio) + projectile.position.y;
+    int realY = (realX * ratio) + _nextProjectile.position.y;
     CGPoint realDest = ccp(realX, realY);
     
     //Determine the length of how far we're shooting
-    int offRealX = realX - projectile.position.x;
-    int offRealY = realY - projectile.position.y;
+    int offRealX = realX - _nextProjectile.position.x;
+    int offRealY = realY - _nextProjectile.position.y;
     float length = sqrtf((offRealX * offRealX) + (offRealY * offRealY));
-    float velocity = 280/1; //480 pixels per 1 second
+    float velocity = 480/1; //480 pixels per 1 second
     float realMoveDuration = length/velocity;
     
+    NSLog(@"Calculations done");
     [[SimpleAudioEngine sharedEngine] playEffect:@"pew-pew-lei.caf"];
+    NSLog(@"Audio done");
     
-    //Rotate turret
+    //Rotate turret calculations
     float angleRadians = atanf((float)offRealY / (float)offRealX);
     float angleDegrees = CC_RADIANS_TO_DEGREES(angleRadians);
     float cocosAngle = -1 * angleDegrees;
-    _player.rotation = cocosAngle;
+    float rotateSpeed = 0.5/M_PI; //Would take 0.5 seconds to rotate half a circle
+    float rotateDuration = fabs(angleRadians * rotateSpeed);
+    
+    [_player runAction:[CCSequence actions:
+                        [CCRotateTo actionWithDuration:rotateDuration angle:cocosAngle],
+                        [CCCallFunc actionWithTarget:self selector:@selector(finishShoot)],
+                        nil]];                   
     
     //Move projectile to actual endpoint
-    [projectile runAction:[CCSequence actions:
+    [_nextProjectile runAction:[CCSequence actions:
                            [CCMoveTo actionWithDuration:realMoveDuration position:realDest],
                            [CCCallFuncN actionWithTarget:self selector:@selector(spriteMoveFinished:)], nil]];
-    
+    NSLog(@"runAction done");
 }
-
+-(void)finishShoot{
+    //Finished rotating so add/shoot projectile.
+    [self addChild:_nextProjectile];
+    [_projectiles addObject:_nextProjectile];
+    
+    [_nextProjectile release];
+    _nextProjectile = nil;
+}
 -(void)gameLogic:(ccTime)dt{
     [self addTarget];
 }
@@ -206,12 +220,12 @@
         
         _targets = [[NSMutableArray alloc] init];
         _projectiles = [[NSMutableArray alloc] init];
-        
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"pew-pew-lei.caf"];
         
         [self schedule:@selector(gameLogic:) interval:1.0];
         [self schedule:@selector(update:)];
         
-		
+
 	}
 	return self;
 }

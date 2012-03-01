@@ -14,6 +14,7 @@
 @interface HelloWorldLayer : CCLayerColor
 {
     CCSprite *_player;
+    CCSprite *_nextProjectile;
     NSMutableArray *_targets;
     NSMutableArray *_projectiles;
     int _projectilesDestroyed;
