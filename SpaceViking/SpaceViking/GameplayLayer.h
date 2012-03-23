@@ -8,9 +8,16 @@
 
 #import "CCLayer.h"
 #import "cocos2d.h"
+#import "SneakyJoystick.h"
+#import "SneakyButton.h"
+#import "SneakyJoystickSkinnedBase.h"
+#import "SneakyButtonSkinnedBase.h"
 
 @interface GameplayLayer : CCLayer{
     CCSprite *vikingSprite;
+    SneakyJoystick *leftJoystick;
+    SneakyButton *jumpButton;
+    SneakyButton *attackButton;
 }
 
 @end

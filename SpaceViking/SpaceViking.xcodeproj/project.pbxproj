@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD05CE84151C23AC00E7336A /* scene1atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD05CE82151C23AC00E7336A /* scene1atlas.plist */; };
+		CD05CE85151C23AC00E7336A /* scene1atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = CD05CE83151C23AC00E7336A /* scene1atlas.png */; };
+		CD05CE88151C23BE00E7336A /* scene1atlasiPhone-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD05CE86151C23BE00E7336A /* scene1atlasiPhone-hd.plist */; };
+		CD05CE89151C23BE00E7336A /* scene1atlasiPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CD05CE87151C23BE00E7336A /* scene1atlasiPhone-hd.png */; };
+		CD05CE8C151C23CE00E7336A /* scene1atlasiPhone.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD05CE8A151C23CE00E7336A /* scene1atlasiPhone.plist */; };
+		CD05CE8D151C23CE00E7336A /* scene1atlasiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = CD05CE8B151C23CE00E7336A /* scene1atlasiPhone.png */; };
 		CDFB3EBC151BC58E00DE9610 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDFB3EBB151BC58E00DE9610 /* QuartzCore.framework */; };
 		CDFB3EBE151BC58E00DE9610 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDFB3EBD151BC58E00DE9610 /* OpenGLES.framework */; };
 		CDFB3EC0151BC58E00DE9610 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDFB3EBF151BC58E00DE9610 /* OpenAL.framework */; };
@@ -152,19 +158,26 @@
 		CDFB40D4151BC8BD00DE9610 /* jumpDown.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFB40A8151BC8BD00DE9610 /* jumpDown.png */; };
 		CDFB40D5151BC8BD00DE9610 /* jumpUp-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFB40A9151BC8BD00DE9610 /* jumpUp-hd.png */; };
 		CDFB40D6151BC8BD00DE9610 /* jumpUp.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFB40AA151BC8BD00DE9610 /* jumpUp.png */; };
-		CDFB40D7151BC8BD00DE9610 /* scene1atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDFB40AB151BC8BD00DE9610 /* scene1atlas.plist */; };
-		CDFB40D8151BC8BD00DE9610 /* scene1atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFB40AC151BC8BD00DE9610 /* scene1atlas.png */; };
-		CDFB40D9151BC8BD00DE9610 /* scene1atlasiPhone-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDFB40AD151BC8BD00DE9610 /* scene1atlasiPhone-hd.plist */; };
-		CDFB40DA151BC8BD00DE9610 /* scene1atlasiPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFB40AE151BC8BD00DE9610 /* scene1atlasiPhone-hd.png */; };
-		CDFB40DB151BC8BD00DE9610 /* scene1atlasiPhone.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDFB40AF151BC8BD00DE9610 /* scene1atlasiPhone.plist */; };
-		CDFB40DC151BC8BD00DE9610 /* scene1atlasiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFB40B0151BC8BD00DE9610 /* scene1atlasiPhone.png */; };
 		CDFB40DD151BC8BD00DE9610 /* sv_anim_1.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFB40B1151BC8BD00DE9610 /* sv_anim_1.png */; };
 		CDFB40E0151BCA0900DE9610 /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFB40DF151BCA0900DE9610 /* BackgroundLayer.m */; };
 		CDFB40E3151BCE2700DE9610 /* GameplayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFB40E2151BCE2700DE9610 /* GameplayLayer.m */; };
 		CDFB40E6151BD1F000DE9610 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFB40E5151BD1F000DE9610 /* GameScene.m */; };
+		CDFB40F5151BD7EF00DE9610 /* ColoredCircleSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFB40E9151BD7EF00DE9610 /* ColoredCircleSprite.m */; };
+		CDFB40F6151BD7EF00DE9610 /* ColoredSquareSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFB40EB151BD7EF00DE9610 /* ColoredSquareSprite.m */; };
+		CDFB40F7151BD7EF00DE9610 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CDFB40EC151BD7EF00DE9610 /* LICENSE */; };
+		CDFB40F8151BD7EF00DE9610 /* SneakyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFB40EE151BD7EF00DE9610 /* SneakyButton.m */; };
+		CDFB40F9151BD7EF00DE9610 /* SneakyButtonSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFB40F0151BD7EF00DE9610 /* SneakyButtonSkinnedBase.m */; };
+		CDFB40FA151BD7EF00DE9610 /* SneakyJoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFB40F2151BD7EF00DE9610 /* SneakyJoystick.m */; };
+		CDFB40FB151BD7EF00DE9610 /* SneakyJoystickSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFB40F4151BD7EF00DE9610 /* SneakyJoystickSkinnedBase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD05CE82151C23AC00E7336A /* scene1atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene1atlas.plist; sourceTree = "<group>"; };
+		CD05CE83151C23AC00E7336A /* scene1atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene1atlas.png; sourceTree = "<group>"; };
+		CD05CE86151C23BE00E7336A /* scene1atlasiPhone-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "scene1atlasiPhone-hd.plist"; sourceTree = "<group>"; };
+		CD05CE87151C23BE00E7336A /* scene1atlasiPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene1atlasiPhone-hd.png"; sourceTree = "<group>"; };
+		CD05CE8A151C23CE00E7336A /* scene1atlasiPhone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene1atlasiPhone.plist; sourceTree = "<group>"; };
+		CD05CE8B151C23CE00E7336A /* scene1atlasiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene1atlasiPhone.png; sourceTree = "<group>"; };
 		CDFB3EB7151BC58E00DE9610 /* SpaceViking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceViking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDFB3EBB151BC58E00DE9610 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDFB3EBD151BC58E00DE9610 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -430,12 +443,6 @@
 		CDFB40A8151BC8BD00DE9610 /* jumpDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jumpDown.png; sourceTree = "<group>"; };
 		CDFB40A9151BC8BD00DE9610 /* jumpUp-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jumpUp-hd.png"; sourceTree = "<group>"; };
 		CDFB40AA151BC8BD00DE9610 /* jumpUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jumpUp.png; sourceTree = "<group>"; };
-		CDFB40AB151BC8BD00DE9610 /* scene1atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene1atlas.plist; sourceTree = "<group>"; };
-		CDFB40AC151BC8BD00DE9610 /* scene1atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene1atlas.png; sourceTree = "<group>"; };
-		CDFB40AD151BC8BD00DE9610 /* scene1atlasiPhone-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "scene1atlasiPhone-hd.plist"; sourceTree = "<group>"; };
-		CDFB40AE151BC8BD00DE9610 /* scene1atlasiPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene1atlasiPhone-hd.png"; sourceTree = "<group>"; };
-		CDFB40AF151BC8BD00DE9610 /* scene1atlasiPhone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene1atlasiPhone.plist; sourceTree = "<group>"; };
-		CDFB40B0151BC8BD00DE9610 /* scene1atlasiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene1atlasiPhone.png; sourceTree = "<group>"; };
 		CDFB40B1151BC8BD00DE9610 /* sv_anim_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sv_anim_1.png; sourceTree = "<group>"; };
 		CDFB40DE151BCA0900DE9610 /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		CDFB40DF151BCA0900DE9610 /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayer.m; sourceTree = "<group>"; };
@@ -443,6 +450,19 @@
 		CDFB40E2151BCE2700DE9610 /* GameplayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayLayer.m; sourceTree = "<group>"; };
 		CDFB40E4151BD1EF00DE9610 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		CDFB40E5151BD1F000DE9610 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		CDFB40E8151BD7EF00DE9610 /* ColoredCircleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredCircleSprite.h; sourceTree = "<group>"; };
+		CDFB40E9151BD7EF00DE9610 /* ColoredCircleSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredCircleSprite.m; sourceTree = "<group>"; };
+		CDFB40EA151BD7EF00DE9610 /* ColoredSquareSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredSquareSprite.h; sourceTree = "<group>"; };
+		CDFB40EB151BD7EF00DE9610 /* ColoredSquareSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredSquareSprite.m; sourceTree = "<group>"; };
+		CDFB40EC151BD7EF00DE9610 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		CDFB40ED151BD7EF00DE9610 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
+		CDFB40EE151BD7EF00DE9610 /* SneakyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButton.m; sourceTree = "<group>"; };
+		CDFB40EF151BD7EF00DE9610 /* SneakyButtonSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButtonSkinnedBase.h; sourceTree = "<group>"; };
+		CDFB40F0151BD7EF00DE9610 /* SneakyButtonSkinnedBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButtonSkinnedBase.m; sourceTree = "<group>"; };
+		CDFB40F1151BD7EF00DE9610 /* SneakyJoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystick.h; sourceTree = "<group>"; };
+		CDFB40F2151BD7EF00DE9610 /* SneakyJoystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystick.m; sourceTree = "<group>"; };
+		CDFB40F3151BD7EF00DE9610 /* SneakyJoystickSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystickSkinnedBase.h; sourceTree = "<group>"; };
+		CDFB40F4151BD7EF00DE9610 /* SneakyJoystickSkinnedBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystickSkinnedBase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,6 +487,7 @@
 		CDFB3EAC151BC58E00DE9610 = {
 			isa = PBXGroup;
 			children = (
+				CDFB40E7151BD7EF00DE9610 /* JoystickClasses */,
 				CDFB3ECB151BC58E00DE9610 /* SpaceViking */,
 				CDFB3EBA151BC58E00DE9610 /* Frameworks */,
 				CDFB3EB8151BC58E00DE9610 /* Products */,
@@ -844,17 +865,17 @@
 		CDFB407D151BC8BD00DE9610 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CD05CE8A151C23CE00E7336A /* scene1atlasiPhone.plist */,
+				CD05CE8B151C23CE00E7336A /* scene1atlasiPhone.png */,
+				CD05CE86151C23BE00E7336A /* scene1atlasiPhone-hd.plist */,
+				CD05CE87151C23BE00E7336A /* scene1atlasiPhone-hd.png */,
+				CD05CE82151C23AC00E7336A /* scene1atlas.plist */,
+				CD05CE83151C23AC00E7336A /* scene1atlas.png */,
 				CDFB407E151BC8BD00DE9610 /* App Launch Images */,
 				CDFB4086151BC8BD00DE9610 /* Backgrounds */,
 				CDFB408D151BC8BD00DE9610 /* Icons */,
 				CDFB4094151BC8BD00DE9610 /* Intro */,
 				CDFB409C151BC8BD00DE9610 /* Joystick */,
-				CDFB40AB151BC8BD00DE9610 /* scene1atlas.plist */,
-				CDFB40AC151BC8BD00DE9610 /* scene1atlas.png */,
-				CDFB40AD151BC8BD00DE9610 /* scene1atlasiPhone-hd.plist */,
-				CDFB40AE151BC8BD00DE9610 /* scene1atlasiPhone-hd.png */,
-				CDFB40AF151BC8BD00DE9610 /* scene1atlasiPhone.plist */,
-				CDFB40B0151BC8BD00DE9610 /* scene1atlasiPhone.png */,
 				CDFB40B1151BC8BD00DE9610 /* sv_anim_1.png */,
 			);
 			path = Images;
@@ -956,6 +977,26 @@
 			path = Joystick;
 			sourceTree = "<group>";
 		};
+		CDFB40E7151BD7EF00DE9610 /* JoystickClasses */ = {
+			isa = PBXGroup;
+			children = (
+				CDFB40E8151BD7EF00DE9610 /* ColoredCircleSprite.h */,
+				CDFB40E9151BD7EF00DE9610 /* ColoredCircleSprite.m */,
+				CDFB40EA151BD7EF00DE9610 /* ColoredSquareSprite.h */,
+				CDFB40EB151BD7EF00DE9610 /* ColoredSquareSprite.m */,
+				CDFB40EC151BD7EF00DE9610 /* LICENSE */,
+				CDFB40ED151BD7EF00DE9610 /* SneakyButton.h */,
+				CDFB40EE151BD7EF00DE9610 /* SneakyButton.m */,
+				CDFB40EF151BD7EF00DE9610 /* SneakyButtonSkinnedBase.h */,
+				CDFB40F0151BD7EF00DE9610 /* SneakyButtonSkinnedBase.m */,
+				CDFB40F1151BD7EF00DE9610 /* SneakyJoystick.h */,
+				CDFB40F2151BD7EF00DE9610 /* SneakyJoystick.m */,
+				CDFB40F3151BD7EF00DE9610 /* SneakyJoystickSkinnedBase.h */,
+				CDFB40F4151BD7EF00DE9610 /* SneakyJoystickSkinnedBase.m */,
+			);
+			path = JoystickClasses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1045,13 +1086,14 @@
 				CDFB40D4151BC8BD00DE9610 /* jumpDown.png in Resources */,
 				CDFB40D5151BC8BD00DE9610 /* jumpUp-hd.png in Resources */,
 				CDFB40D6151BC8BD00DE9610 /* jumpUp.png in Resources */,
-				CDFB40D7151BC8BD00DE9610 /* scene1atlas.plist in Resources */,
-				CDFB40D8151BC8BD00DE9610 /* scene1atlas.png in Resources */,
-				CDFB40D9151BC8BD00DE9610 /* scene1atlasiPhone-hd.plist in Resources */,
-				CDFB40DA151BC8BD00DE9610 /* scene1atlasiPhone-hd.png in Resources */,
-				CDFB40DB151BC8BD00DE9610 /* scene1atlasiPhone.plist in Resources */,
-				CDFB40DC151BC8BD00DE9610 /* scene1atlasiPhone.png in Resources */,
 				CDFB40DD151BC8BD00DE9610 /* sv_anim_1.png in Resources */,
+				CDFB40F7151BD7EF00DE9610 /* LICENSE in Resources */,
+				CD05CE84151C23AC00E7336A /* scene1atlas.plist in Resources */,
+				CD05CE85151C23AC00E7336A /* scene1atlas.png in Resources */,
+				CD05CE88151C23BE00E7336A /* scene1atlasiPhone-hd.plist in Resources */,
+				CD05CE89151C23BE00E7336A /* scene1atlasiPhone-hd.png in Resources */,
+				CD05CE8C151C23CE00E7336A /* scene1atlasiPhone.plist in Resources */,
+				CD05CE8D151C23CE00E7336A /* scene1atlasiPhone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1163,6 +1205,12 @@
 				CDFB40E0151BCA0900DE9610 /* BackgroundLayer.m in Sources */,
 				CDFB40E3151BCE2700DE9610 /* GameplayLayer.m in Sources */,
 				CDFB40E6151BD1F000DE9610 /* GameScene.m in Sources */,
+				CDFB40F5151BD7EF00DE9610 /* ColoredCircleSprite.m in Sources */,
+				CDFB40F6151BD7EF00DE9610 /* ColoredSquareSprite.m in Sources */,
+				CDFB40F8151BD7EF00DE9610 /* SneakyButton.m in Sources */,
+				CDFB40F9151BD7EF00DE9610 /* SneakyButtonSkinnedBase.m in Sources */,
+				CDFB40FA151BD7EF00DE9610 /* SneakyJoystick.m in Sources */,
+				CDFB40FB151BD7EF00DE9610 /* SneakyJoystickSkinnedBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1260,6 +1308,7 @@
 				CDFB402B151BC59000DE9610 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
