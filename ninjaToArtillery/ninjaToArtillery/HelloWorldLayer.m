@@ -121,20 +121,22 @@
     
 }
 -(void)addTarget{
-    CCSprite *target = [CCSprite spriteWithFile:@"Target.png" rect:CGRectMake(0, 0, 27, 40)];
+    //CCSprite *target = [CCSprite spriteWithFile:@"Target.png" rect:CGRectMake(0, 0, 27, 40)];
+    CCSprite *target = [CCSprite spriteWithFile:@"Target_Jet_Blue_mod.png"];
     target.tag = 1;
     [_targets addObject:target];
     
-    //Determine where to spawn the target along Y-axis
+    //Determine where to spawn the target along top X-axis
+    //  Will only spawn between the left turret and the right turret(won't fly through either one).
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    int minY = target.contentSize.height/2;
-    int maxY = winSize.height - target.contentSize.height/2;
-    int rangeY = maxY - minY;
-    int actualY = (arc4random() % rangeY) + minY;
+    int minX = target.contentSize.width/2 + _leftTopTurret.contentSize.width;
+    int maxX = winSize.width - target.contentSize.width/2 - _rightTopTurret.contentSize.width;
+    int rangeX = maxX - minX;
+    int actualX = (arc4random() % rangeX) + minX;
     
-    //Create the target slightly off-screen along the right edge,
-    // and along a random position along the Y axis as calculated above
-    target.position = ccp(winSize.width + (target.contentSize.width/2), actualY);
+    //Create the target slightly off-screen along the top edge,
+    // and along a random position along the X axis as calculated above
+    target.position = ccp(actualX, winSize.height + (target.contentSize.height/2));
     [self addChild:target];
     
     //Determine the speed of the target;
@@ -143,8 +145,8 @@
     int rangeDuration = maxDuration - minDuration;
     int actualDuration = (arc4random() % rangeDuration) + minDuration;
     
-    //Create the actions
-    id actionMove = [CCMoveTo actionWithDuration:actualDuration position:ccp(-target.contentSize.width/2, actualY)];
+    //Create the actions(go until off the screen)
+    id actionMove = [CCMoveTo actionWithDuration:actualDuration position:ccp(actualX, -target.contentSize.height/2)];
     id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(spriteMoveFinished:)];
     [target runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
     
@@ -203,10 +205,15 @@
         float rotateSpeed = 0.5/M_PI; //Would take 0.5 seconds to rotate half a circle
         float rotateDuration = fabs(angleRadians * rotateSpeed);
         
-        [_leftPlayer runAction:[CCSequence actions:
+        [_leftTopTurret runAction:[CCSequence actions:
+         [CCRotateTo actionWithDuration:rotateDuration angle:cocosAngle],
+         [CCCallFunc actionWithTarget:self selector:@selector(finishShoot)],
+         nil]];
+        
+        /*[_leftPlayer runAction:[CCSequence actions:
                                 [CCRotateTo actionWithDuration:rotateDuration angle:cocosAngle],
                                 [CCCallFunc actionWithTarget:self selector:@selector(finishShoot)],
-                                nil]];
+                                nil]];*/
     }
     else{
         _nextProjectile.position = ccp(winSize.width - 20, winSize.height/2);
@@ -239,10 +246,15 @@
         float rotateSpeed = 0.5/M_PI; //Would take 0.5 seconds to rotate half a circle
         float rotateDuration = fabs(angleRadians * rotateSpeed);
         
-        [_rightPlayer runAction:[CCSequence actions:
+        [_rightTopTurret runAction:[CCSequence actions:
+         [CCRotateTo actionWithDuration:rotateDuration angle:cocosAngle],
+         [CCCallFunc actionWithTarget:self selector:@selector(finishShoot)],
+         nil]];
+        
+        /*[_rightPlayer runAction:[CCSequence actions:
                                 [CCRotateTo actionWithDuration:rotateDuration angle:cocosAngle],
                                 [CCCallFunc actionWithTarget:self selector:@selector(finishShoot)],
-                                nil]];
+                                nil]];*/
     }
     //NSLog(@"Added projectile");
     
@@ -275,20 +287,38 @@
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
-	if( (self=[super initWithColor:ccc4(255,255,255,255)])) {
+	if( (self=[super initWithColor:ccc4(135,206,250,255)])) {
         self.isTouchEnabled = YES;
         NSLog(@"Entered init");
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
         //CCSprite *player = [CCSprite spriteWithFile:@"Player2.jpeg"];
         //player.position = ccp(player.contentSize.width/2, winSize.height/2);
         //[self addChild:player];
-        _leftPlayer = [[CCSprite spriteWithFile:@"Player2.jpeg"] retain];
-        _leftPlayer.position = ccp(_leftPlayer.contentSize.width/2, winSize.height/2);
-        [self addChild:_leftPlayer];
-        _rightPlayer = [[CCSprite spriteWithFile:@"Player2.jpeg"] retain];
-        _rightPlayer.position = ccp(winSize.width - _rightPlayer.contentSize.width/2, winSize.height/2);
-        [_rightPlayer setFlipX:YES];
-        [self addChild:_rightPlayer];
+        
+        _leftBottomTurret = [[CCSprite spriteWithFile:@"Turret_Bottom.png"] retain];
+        _leftBottomTurret.position = ccp(_leftBottomTurret.contentSize.width/2, winSize.height/2);
+        [self addChild: _leftBottomTurret z:5];
+
+        _leftTopTurret = [[CCSprite spriteWithFile:@"Turret_Top.png"] retain];
+        _leftTopTurret.position = ccp(_leftTopTurret.contentSize.width/2-19, winSize.height/2);
+        [self addChild: _leftTopTurret z:10];
+        
+        _rightBottomTurret = [[CCSprite spriteWithFile:@"Turret_Bottom.png"] retain];
+        _rightBottomTurret.position = ccp(winSize.width - _rightBottomTurret.contentSize.width/2, winSize.height/2);
+        [self addChild: _rightBottomTurret z:5];
+        
+        _rightTopTurret = [[CCSprite spriteWithFile:@"Turret_Top.png"] retain];
+        _rightTopTurret.position = ccp(winSize.width - _rightTopTurret.contentSize.width/2+19, winSize.height/2);
+        [_rightTopTurret setFlipX:YES];
+        [self addChild: _rightTopTurret z:10];
+
+        //_leftPlayer = [[CCSprite spriteWithFile:@"Player2_mod.png"] retain];
+        //_leftPlayer.position = ccp(_leftPlayer.contentSize.width/2, winSize.height/2);
+        //[self addChild:_leftPlayer];
+        //_rightPlayer = [[CCSprite spriteWithFile:@"Player2_mod.png"] retain];
+        //_rightPlayer.position = ccp(winSize.width - _rightPlayer.contentSize.width/2, winSize.height/2);
+        //[_rightPlayer setFlipX:YES];
+        //[self addChild:_rightPlayer];
         
         leftScoreLabel = [CCLabelTTF labelWithString:@"Score: 0" fontName:@"Helvetica" fontSize:20];
         [leftScoreLabel setPosition:ccp(45, winSize.height-10)];
@@ -326,15 +356,22 @@
 	
 	// don't forget to call "super dealloc"
 	[super dealloc];
+    
+    [_leftBottomTurret release];
+    _leftBottomTurret = nil;
+    [_rightBottomTurret release];
+    _rightBottomTurret = nil;
+    
     [_targets release];
     _targets = nil;
     [_leftProjectiles release];
     _leftProjectiles = nil;
     [_rightProjectiles release];
     _rightProjectiles = nil;
-    [_leftPlayer release];
+    
+    /*[_leftPlayer release];
     _leftPlayer = nil;
     [_rightPlayer release];
-    _rightPlayer = nil;
+    _rightPlayer = nil;*/
 }
 @end

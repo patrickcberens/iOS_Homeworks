@@ -14,8 +14,13 @@
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayerColor
 {
-    CCSprite *_leftPlayer;
-    CCSprite *_rightPlayer;
+    CCSprite *_leftBottomTurret;
+    CCSprite *_rightBottomTurret;
+    CCSprite *_leftTopTurret;
+    CCSprite *_rightTopTurret;
+    
+    //CCSprite *_leftPlayer;
+    //CCSprite *_rightPlayer;
     CCSprite *_nextProjectile;
     NSMutableArray *_targets;
     NSMutableArray *_leftProjectiles;
