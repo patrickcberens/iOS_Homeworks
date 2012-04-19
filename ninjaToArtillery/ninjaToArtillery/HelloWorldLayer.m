@@ -180,8 +180,9 @@
         //Determine offset of location to projectile
         int offX = location.x - _nextProjectile.position.x;
         int offY = location.y - _nextProjectile.position.y;
+        
         //Bail out if we are shooting down or backwards(to left)
-        if(offX <= 0) return;
+        //if(offX <= 0) return;
         
         //Determine where we wish to shoot the projectile to
         int realX = winSize.width + (_nextProjectile.contentSize.width/2);
