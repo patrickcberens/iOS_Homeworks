@@ -5,8 +5,10 @@
 //  Created by default on 2/29/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameScene.h"
+//#import "GameplayLayer.h"
 
 @interface GameOverLayer : CCLayerColor{
     CCLabelTTF *_label;

@@ -10,7 +10,7 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldLayer.h"
+#import "GameScene.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -65,6 +65,7 @@
 								   pixelFormat:kEAGLColorFormatRGB565	// kEAGLColorFormatRGBA8
 								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
 						];
+    //[glView setMultipleTouchEnabled:YES];
 	
 	// attach the openglView to the director
 	[director setOpenGLView:glView];
@@ -110,7 +111,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [GameScene node]];
 }
 
 

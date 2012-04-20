@@ -7,7 +7,8 @@
 //
 
 #import "GameOverScene.h"
-#import "HelloWorldLayer.h"
+
+
 
 @implementation GameOverScene
 @synthesize layer = _layer;
@@ -47,7 +48,7 @@
 }
 
 -(void)gameOverDone{
-    [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[GameScene node]];
 }
 -(void)dealloc{
     [_label release];

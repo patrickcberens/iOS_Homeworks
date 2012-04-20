@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD8A9E1E153F84D4002DD4A4 /* Target_Jet_Blue_mod.PNG in Resources */ = {isa = PBXBuildFile; fileRef = CD8A9E1D153F84D4002DD4A4 /* Target_Jet_Blue_mod.PNG */; };
+		CD52AAB71540B0A300945412 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52AAB61540B0A300945412 /* Player.m */; };
+		CD52AABA1540B0CE00945412 /* Computer.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52AAB91540B0CE00945412 /* Computer.m */; };
+		CD52AABE1540CFEE00945412 /* Turret.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52AABD1540CFEE00945412 /* Turret.m */; };
+		CD52AACB154139AA00945412 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52AACA154139AA00945412 /* GameScene.m */; };
+		CD52AACE1541415200945412 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52AACD1541415200945412 /* Character.m */; };
+		CD52AAD11541420D00945412 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52AAD01541420D00945412 /* Enemy.m */; };
+		CD52AAD41541424F00945412 /* FighterJet.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52AAD31541424E00945412 /* FighterJet.m */; };
 		CD8A9E22153F8B3A002DD4A4 /* Player2_mod.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8A9E21153F8B3A002DD4A4 /* Player2_mod.png */; };
 		CD8A9E26153F97D4002DD4A4 /* Turret_Top.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8A9E25153F97D4002DD4A4 /* Turret_Top.png */; };
 		CD8A9E28153F9B3C002DD4A4 /* Turret_Bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8A9E27153F9B3C002DD4A4 /* Turret_Bottom.png */; };
+		CD8A9E2A153FAF16002DD4A4 /* Target_Jet_Blue_mod.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8A9E29153FAF16002DD4A4 /* Target_Jet_Blue_mod.png */; };
 		CD8B33AB1525002400A69292 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8B33AA1525002400A69292 /* GameOverScene.m */; };
 		CD8B33AF1525019200A69292 /* Target.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8B33AE1525019200A69292 /* Target.png */; };
 		CD8D9C341524FEDA005E55F2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8D9C331524FEDA005E55F2 /* QuartzCore.framework */; };
@@ -127,17 +134,32 @@
 		CD8D9D941524FEDC005E55F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D9D931524FEDC005E55F2 /* main.m */; };
 		CD8D9D971524FEDC005E55F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D9D961524FEDC005E55F2 /* AppDelegate.m */; };
 		CD8D9D9A1524FEDC005E55F2 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D9D991524FEDC005E55F2 /* RootViewController.m */; };
-		CD8D9D9D1524FEDC005E55F2 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D9D9C1524FEDC005E55F2 /* HelloWorldLayer.m */; };
+		CD8D9D9D1524FEDC005E55F2 /* GameplayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8D9D9C1524FEDC005E55F2 /* GameplayLayer.m */; };
 		CD8D9DA51524FF1D005E55F2 /* Player2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CD8D9DA41524FF1D005E55F2 /* Player2.jpeg */; };
 		CD8D9DA71524FF25005E55F2 /* Projectile2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CD8D9DA61524FF25005E55F2 /* Projectile2.jpeg */; };
 		CD8D9DA91524FF2D005E55F2 /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = CD8D9DA81524FF2D005E55F2 /* pew-pew-lei.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CD8A9E1D153F84D4002DD4A4 /* Target_Jet_Blue_mod.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Target_Jet_Blue_mod.PNG; sourceTree = "<group>"; };
+		CD52AAB51540B0A300945412 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		CD52AAB61540B0A300945412 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		CD52AAB81540B0CE00945412 /* Computer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Computer.h; sourceTree = "<group>"; };
+		CD52AAB91540B0CE00945412 /* Computer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Computer.m; sourceTree = "<group>"; };
+		CD52AABC1540CFED00945412 /* Turret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turret.h; sourceTree = "<group>"; };
+		CD52AABD1540CFEE00945412 /* Turret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turret.m; sourceTree = "<group>"; };
+		CD52AAC7154103EF00945412 /* GameLayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayerDelegate.h; sourceTree = "<group>"; };
+		CD52AAC9154139A900945412 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		CD52AACA154139AA00945412 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		CD52AACC1541415200945412 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
+		CD52AACD1541415200945412 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
+		CD52AACF1541420C00945412 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
+		CD52AAD01541420D00945412 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
+		CD52AAD21541424E00945412 /* FighterJet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FighterJet.h; sourceTree = "<group>"; };
+		CD52AAD31541424E00945412 /* FighterJet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FighterJet.m; sourceTree = "<group>"; };
 		CD8A9E21153F8B3A002DD4A4 /* Player2_mod.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player2_mod.png; sourceTree = "<group>"; };
 		CD8A9E25153F97D4002DD4A4 /* Turret_Top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Turret_Top.png; sourceTree = "<group>"; };
 		CD8A9E27153F9B3C002DD4A4 /* Turret_Bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Turret_Bottom.png; sourceTree = "<group>"; };
+		CD8A9E29153FAF16002DD4A4 /* Target_Jet_Blue_mod.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Target_Jet_Blue_mod.png; sourceTree = "<group>"; };
 		CD8B33AA1525002400A69292 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		CD8B33AD1525002B00A69292 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 		CD8B33AE1525019200A69292 /* Target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Target.png; sourceTree = "<group>"; };
@@ -373,8 +395,8 @@
 		CD8D9D961524FEDC005E55F2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CD8D9D981524FEDC005E55F2 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		CD8D9D991524FEDC005E55F2 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		CD8D9D9B1524FEDC005E55F2 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		CD8D9D9C1524FEDC005E55F2 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		CD8D9D9B1524FEDC005E55F2 /* GameplayLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameplayLayer.h; sourceTree = "<group>"; };
+		CD8D9D9C1524FEDC005E55F2 /* GameplayLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameplayLayer.m; sourceTree = "<group>"; };
 		CD8D9D9E1524FEDC005E55F2 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		CD8D9DA41524FF1D005E55F2 /* Player2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Player2.jpeg; sourceTree = "<group>"; };
 		CD8D9DA61524FF25005E55F2 /* Projectile2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Projectile2.jpeg; sourceTree = "<group>"; };
@@ -441,12 +463,27 @@
 				CD8B33AD1525002B00A69292 /* GameOverScene.h */,
 				CD8B33AA1525002400A69292 /* GameOverScene.m */,
 				CD8D9D991524FEDC005E55F2 /* RootViewController.m */,
-				CD8D9D9B1524FEDC005E55F2 /* HelloWorldLayer.h */,
-				CD8D9D9C1524FEDC005E55F2 /* HelloWorldLayer.m */,
+				CD8D9D9B1524FEDC005E55F2 /* GameplayLayer.h */,
+				CD8D9D9C1524FEDC005E55F2 /* GameplayLayer.m */,
 				CD8D9D9E1524FEDC005E55F2 /* GameConfig.h */,
 				CD8D9C441524FEDA005E55F2 /* Resources */,
 				CD8D9C581524FEDA005E55F2 /* libs */,
 				CD8D9D911524FEDC005E55F2 /* Supporting Files */,
+				CD52AAB51540B0A300945412 /* Player.h */,
+				CD52AAB61540B0A300945412 /* Player.m */,
+				CD52AAB81540B0CE00945412 /* Computer.h */,
+				CD52AAB91540B0CE00945412 /* Computer.m */,
+				CD52AABC1540CFED00945412 /* Turret.h */,
+				CD52AABD1540CFEE00945412 /* Turret.m */,
+				CD52AAC7154103EF00945412 /* GameLayerDelegate.h */,
+				CD52AAC9154139A900945412 /* GameScene.h */,
+				CD52AACA154139AA00945412 /* GameScene.m */,
+				CD52AACC1541415200945412 /* Character.h */,
+				CD52AACD1541415200945412 /* Character.m */,
+				CD52AACF1541420C00945412 /* Enemy.h */,
+				CD52AAD01541420D00945412 /* Enemy.m */,
+				CD52AAD21541424E00945412 /* FighterJet.h */,
+				CD52AAD31541424E00945412 /* FighterJet.m */,
 			);
 			path = ninjaToArtillery;
 			sourceTree = "<group>";
@@ -462,9 +499,9 @@
 				CD8A9E21153F8B3A002DD4A4 /* Player2_mod.png */,
 				CD8A9E27153F9B3C002DD4A4 /* Turret_Bottom.png */,
 				CD8A9E25153F97D4002DD4A4 /* Turret_Top.png */,
+				CD8A9E29153FAF16002DD4A4 /* Target_Jet_Blue_mod.png */,
 				CD8D9DA61524FF25005E55F2 /* Projectile2.jpeg */,
 				CD8B33AE1525019200A69292 /* Target.png */,
-				CD8A9E1D153F84D4002DD4A4 /* Target_Jet_Blue_mod.PNG */,
 				CD8D9DA81524FF2D005E55F2 /* pew-pew-lei.caf */,
 				CD8D9C4D1524FEDA005E55F2 /* Icon-Small.png */,
 				CD8D9C4F1524FEDA005E55F2 /* Icon-Small@2x.png */,
@@ -850,10 +887,10 @@
 				CD8D9DA71524FF25005E55F2 /* Projectile2.jpeg in Resources */,
 				CD8D9DA91524FF2D005E55F2 /* pew-pew-lei.caf in Resources */,
 				CD8B33AF1525019200A69292 /* Target.png in Resources */,
-				CD8A9E1E153F84D4002DD4A4 /* Target_Jet_Blue_mod.PNG in Resources */,
 				CD8A9E22153F8B3A002DD4A4 /* Player2_mod.png in Resources */,
 				CD8A9E26153F97D4002DD4A4 /* Turret_Top.png in Resources */,
 				CD8A9E28153F9B3C002DD4A4 /* Turret_Bottom.png in Resources */,
+				CD8A9E2A153FAF16002DD4A4 /* Target_Jet_Blue_mod.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,8 +998,15 @@
 				CD8D9D941524FEDC005E55F2 /* main.m in Sources */,
 				CD8D9D971524FEDC005E55F2 /* AppDelegate.m in Sources */,
 				CD8D9D9A1524FEDC005E55F2 /* RootViewController.m in Sources */,
-				CD8D9D9D1524FEDC005E55F2 /* HelloWorldLayer.m in Sources */,
+				CD8D9D9D1524FEDC005E55F2 /* GameplayLayer.m in Sources */,
 				CD8B33AB1525002400A69292 /* GameOverScene.m in Sources */,
+				CD52AAB71540B0A300945412 /* Player.m in Sources */,
+				CD52AABA1540B0CE00945412 /* Computer.m in Sources */,
+				CD52AABE1540CFEE00945412 /* Turret.m in Sources */,
+				CD52AACB154139AA00945412 /* GameScene.m in Sources */,
+				CD52AACE1541415200945412 /* Character.m in Sources */,
+				CD52AAD11541420D00945412 /* Enemy.m in Sources */,
+				CD52AAD41541424F00945412 /* FighterJet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
