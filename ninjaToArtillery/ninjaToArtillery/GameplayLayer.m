@@ -31,7 +31,7 @@
 	return scene;
 }
 */
--(int)projectilesUpdate:(NSMutableArray *)projectiles score:(int)destroyedCount{
+/*-(int)projectilesUpdate:(NSMutableArray *)projectiles score:(int)destroyedCount{
     NSMutableArray *projectilesToDelete = [[NSMutableArray alloc] init];
     
     //Create rectangles around projectiles and targets.
@@ -74,9 +74,25 @@
     }
     [projectilesToDelete release];
     return destroyedCount;
-}
+}*/
 -(void)update:(ccTime)dt{
     //Left Update
+    [_leftPlayer detectProjectileCollisions:_enemies];
+    if([_leftPlayer updateScore]){
+        GameOverScene *gameOverScene = [GameOverScene node];
+        [gameOverScene.layer.label setString:@"Left wins!"];
+        [[CCDirector sharedDirector] replaceScene:gameOverScene];
+    }
+    
+    //Right Update
+    [_rightPlayer detectProjectileCollisions:_enemies];
+    if([_rightPlayer updateScore]){
+        GameOverScene *gameOverScene = [GameOverScene node];
+        [gameOverScene.layer.label setString:@"Right wins!"];
+        [[CCDirector sharedDirector] replaceScene:gameOverScene];    
+    }
+    
+ /*   //Left Update
     _leftProjectilesDestroyed = [self projectilesUpdate:_leftProjectiles score:_leftProjectilesDestroyed];
     [_leftPlayer updateScore:_leftProjectilesDestroyed];
     //Check for game over
@@ -98,24 +114,31 @@
         _rightProjectilesDestroyed = 0;
         [gameOverScene.layer.label setString:@"Right wins!"];
         [[CCDirector sharedDirector] replaceScene:gameOverScene];
-    }
+    }*/
 }
 
 
--(void)spriteMoveFinished:(id)sender{
+/*-(void)spriteMoveFinished:(id)sender{
     CCSprite *sprite = (CCSprite *)sender;
     if(sprite.tag == 1)
         [_targets removeObject:sprite];
-/*    else if(sprite.tag == 2)
-        [_leftProjectiles removeObject:sprite];
-    else if(sprite.tag == 3)
-        [_rightProjectiles removeObject:sprite];*/
+//    else if(sprite.tag == 2)
+//        [_leftProjectiles removeObject:sprite];
+//    else if(sprite.tag == 3)
+//        [_rightProjectiles removeObject:sprite];
     [self removeChild:sprite cleanup:YES];
     
+}*/
+-(void)addEnemy:(CCNode *)node{
+    [_enemies addObject:(CCSprite *)node];
+    
+}
+-(void)removeEnemy:(CCNode *)node{
+    [_enemies removeObject:(CCSprite*)node];
 }
 -(void)addTarget{
     //CCSprite *target = [CCSprite spriteWithFile:@"Target.png" rect:CGRectMake(0, 0, 27, 40)];
-    CCSprite *target = [CCSprite spriteWithFile:@"Target_Jet_Blue_mod.png"];
+/*    CCSprite *target = [CCSprite spriteWithFile:@"Target_Jet_Blue_mod.png"];
     target.tag = 1;
     [_targets addObject:target];
     
@@ -143,7 +166,13 @@
     //Create the actions(go until off the screen)
     id actionMove = [CCMoveTo actionWithDuration:actualDuration position:ccp(actualX, -target.contentSize.height/2)];
     id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(spriteMoveFinished:)];
-    [target runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
+    [target runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];*/
+    
+    FighterJet *enemy = [FighterJet alloc];
+    [enemy setGameLayerDelegate:self];
+    [enemy initEnemyWithFilename:@"Target_Jet_Blue_mod.png"];
+    
+    [enemy spawnEnemy];
     
 }
 -(void) registerWithTouchDispatcher
@@ -155,7 +184,7 @@
 }
 
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
-    NSLog(@"Detected Touch Ended");
+    //NSLog(@"Detected Touch Ended");
     
     //if(_nextProjectile != nil) return;
     
@@ -347,6 +376,8 @@
         [_rightPlayer setGameLayerDelegate:self];
         [_rightPlayer initPlayerWithPosition:rightSide];
         
+        _enemies = [[NSMutableArray alloc] init];
+        
 /*        _leftBottomTurret = [[CCSprite spriteWithFile:@"Turret_Bottom.png"] retain];
         _leftBottomTurret.position = ccp(_leftBottomTurret.contentSize.width/2, winSize.height/2);
         [self addChild: _leftBottomTurret z:5];
@@ -375,9 +406,9 @@
         [self addChild:rightScoreLabel];
  */
         
-        _targets = [[NSMutableArray alloc] init];
+ /*       _targets = [[NSMutableArray alloc] init];
         _leftProjectiles = [[NSMutableArray alloc] init];
-        _rightProjectiles = [[NSMutableArray alloc] init];
+        _rightProjectiles = [[NSMutableArray alloc] init];*/
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"pew-pew-lei.caf"];
         
         [self schedule:@selector(gameLogic:) interval:1.0];
@@ -396,11 +427,6 @@
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
 	[super dealloc];
     
     //[_leftBottomTurret release];

@@ -12,8 +12,7 @@
 #import "cocos2d.h"
 #import "Player.h"
 #import "Computer.h"
-
-#define WIN_SCORE 4 //5 kills to win
+#import "FighterJet.h"
 
 // HelloWorldLayer
 @interface GameplayLayer : CCLayerColor <GameLayerDelegate>
@@ -26,6 +25,8 @@
     Player *_leftPlayer;
     Player *_rightPlayer;
     Computer *_rightComputer;
+    
+    NSMutableArray *_enemies;
     
     //CCSprite *_nextProjectile;
     NSMutableArray *_targets;

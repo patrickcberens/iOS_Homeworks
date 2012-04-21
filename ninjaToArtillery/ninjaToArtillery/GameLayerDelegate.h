@@ -13,5 +13,6 @@
 //-(void)finishShoot:(CCSprite*)nextProjectile;
 -(void)addChild:(CCNode*)node z:(NSInteger)z;
 -(void)removeChild:(CCNode*)node cleanup:(BOOL)cleanup;
-
+-(void)addEnemy:(CCNode*)node;
+-(void)removeEnemy:(CCNode*)node;
 @end

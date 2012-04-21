@@ -8,6 +8,8 @@
 
 #import "Enemy.h"
 
-@interface FighterJet : Enemy
-
+@interface FighterJet : Enemy{
+    
+}
+-(void)spawnEnemy;
 @end

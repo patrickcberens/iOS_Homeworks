@@ -6,10 +6,12 @@
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "GameLayerDelegate.h"
 #import "Character.h"
+
+#define WIN_SCORE (5) //5 kills to win
+#define TOP_TURRET_OFFSET (19)
 
 typedef enum {
     leftSide,
@@ -21,7 +23,6 @@ typedef enum {
     
     CCSprite *_baseTurret;
     CCSprite *_topTurret;
-    NSInteger _topTurretOffset;
     
     CCSprite *_nextProjectile;
     NSMutableArray *_projectiles;
@@ -33,8 +34,9 @@ typedef enum {
     id <GameLayerDelegate> gameLayerDelegate;
 }
 @property (retain) id gameLayerDelegate;
--(void)rotationFinished;
--(void)updateScore:(NSInteger)increment;
+
+-(BOOL)updateScore;
+-(void)detectProjectileCollisions:(NSMutableArray*)enemies;
 
 -(id)initPlayerWithPosition:(PlayerPosition) pos;   //custom init method
 

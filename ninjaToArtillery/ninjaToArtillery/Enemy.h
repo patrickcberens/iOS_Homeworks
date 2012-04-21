@@ -6,11 +6,22 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "cocos2d.h"
+#import "GameLayerDelegate.h"
 #import "Character.h"
+
 
 @interface Enemy : Character
 {
-    NSMutableArray *_enemies;
+    CCSprite *_enemy;
+    
+    int minMoveDuration;
+    int maxMoveDuration;
+    
+    id <GameLayerDelegate> gameLayerDelegate;
 }
+@property (retain) id gameLayerDelegate;
+
+-(id)initEnemyWithFilename:(NSString*)filename;   //custom init method
 
 @end
