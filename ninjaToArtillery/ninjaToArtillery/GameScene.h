@@ -10,8 +10,11 @@
 #import "cocos2d.h"
 #import "GameplayLayer.h"
 
-@interface GameScene : CCScene {
-    
-}
 
+
+@interface GameScene : CCScene {
+    GameplayLayer *gameplayLayer;
+}
+-(id)initWithGameType:(GameType)gameType;
+-(void)setOpponentType:(GameType)gameType;
 @end

@@ -14,13 +14,16 @@
 #import "Computer.h"
 #import "FighterJet.h"
 
+typedef enum {
+    computer,
+    human
+} GameType;
+
+
 // HelloWorldLayer
 @interface GameplayLayer : CCLayerColor <GameLayerDelegate>
 {
-    //CCSprite *_leftBottomTurret;
-    //CCSprite *_rightBottomTurret;
-    //CCSprite *_leftTopTurret;
-    //CCSprite *_rightTopTurret;
+    NSInteger _gameType;    //whether vs computer or human
     
     Player *_leftPlayer;
     Player *_rightPlayer;
@@ -28,19 +31,9 @@
     
     NSMutableArray *_enemies;
     
-    //CCSprite *_nextProjectile;
-    NSMutableArray *_targets;
-    NSMutableArray *_leftProjectiles;
-    NSMutableArray *_rightProjectiles;
-    
-    //CCLabelTTF *leftScoreLabel;
-    NSInteger _leftProjectilesDestroyed;
-    //CCLabelTTF *rightScoreLabel;
-    NSInteger _rightProjectilesDestroyed;
 }
 
+-(void)setGameType:(GameType)type;
 
-// returns a CCScene that contains the HelloWorldLayer as the only child
-//+(CCScene *) scene;
 @end
 

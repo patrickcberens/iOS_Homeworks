@@ -48,7 +48,7 @@
 }
 
 -(void)gameOverDone{
-    [[CCDirector sharedDirector] replaceScene:[GameScene node]];
+    [[CCDirector sharedDirector] replaceScene:[MenuScene node]];
 }
 -(void)dealloc{
     [_label release];

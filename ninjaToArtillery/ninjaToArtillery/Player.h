@@ -12,5 +12,5 @@
 
 }
 
--(void)fireProjectile:(CGPoint)location;
+-(void)fireProjectile:(CGPoint)touchLocation;
 @end

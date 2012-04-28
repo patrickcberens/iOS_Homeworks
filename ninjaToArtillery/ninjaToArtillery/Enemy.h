@@ -8,10 +8,9 @@
 
 #import "cocos2d.h"
 #import "GameLayerDelegate.h"
-#import "Character.h"
 
 
-@interface Enemy : Character
+@interface Enemy : CCNode
 {
     CCSprite *_enemy;
     

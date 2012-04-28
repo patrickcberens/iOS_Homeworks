@@ -24,7 +24,7 @@
 -(id)initEnemyWithFilename:(NSString*)filename
 {
     if((self = [super init]) != nil){
-        minMoveDuration = 2;
+        minMoveDuration = 2;    //2
         maxMoveDuration = 4;
         
         _enemy = [[CCSprite spriteWithFile:filename] retain];
@@ -39,6 +39,7 @@
         int maxX = winSize.width - _enemy.contentSize.width/2;
         int rangeX = maxX - minX;
         int actualX = (arc4random() % rangeX) + minX;
+        //int actualX = 200;
         
         // Create the _enemy slightly off-screen along the right edge,
         // and along a random position along the X axis as calculated above

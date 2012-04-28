@@ -13,7 +13,6 @@
 @synthesize gameLayerDelegate;
 
 -(void)rotationFinished{
-    //NSLog(@"Player: rotationFinished");
     [[self gameLayerDelegate] addChild:_nextProjectile z:1];
     [_projectiles addObject:_nextProjectile];
     
@@ -21,7 +20,6 @@
     _nextProjectile = nil;
 }
 -(void)projectileMoveFinished:(id)sender{
-    //NSLog(@"Player: spriteMoveFinished");
     CCSprite *sprite = (CCSprite *)sender;
     [_projectiles removeObject:sprite];
     
@@ -31,9 +29,7 @@
 
 -(void)detectProjectileCollisions:(NSMutableArray*)enemies{
     NSMutableArray *projectilesToDelete = [[NSMutableArray alloc] init];
-    
-    printf("Number of projectiles: %d\n", _projectiles.count);
-    printf("Number of enemies: %d\n", enemies.count);
+
     //Create rectangles around projectiles and enemies.
     //Iterate through each projectile, check if intersects rectangle of enemy.
     //-If intersects, delete enemy
@@ -76,7 +72,7 @@
 
 }
 -(BOOL)updateScore{
-    NSString *scoreText = [NSString stringWithFormat:@"Score: %d", _score];
+    NSString *scoreText = [NSString stringWithFormat:@"Score: %d/%d", _score, WIN_SCORE];
     [_scoreLabel setString:scoreText];
     if(_score >= WIN_SCORE)
         return YES;
@@ -95,7 +91,8 @@
         _baseTurret = [[CCSprite spriteWithFile:@"Turret_Bottom.png"] retain];
         _topTurret = [[CCSprite spriteWithFile:@"Turret_Top.png"] retain];
         
-        _scoreLabel = [CCLabelTTF labelWithString:@"Score: 0" fontName:@"Helvetica" fontSize:20];
+        NSString *scoreText = [NSString stringWithFormat:@"Score: %d/%d", _score, WIN_SCORE];
+        _scoreLabel = [CCLabelTTF labelWithString:scoreText fontName:@"Helvetica" fontSize:20];
         [_scoreLabel setColor:ccc3(0.0f, 0.0f, 0.0f)];
         
         //Set positions based on if on left or right side of screen

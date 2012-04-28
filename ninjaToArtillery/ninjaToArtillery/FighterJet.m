@@ -15,7 +15,7 @@
     // Determine speed of the _enemy
     int rangeDuration = maxMoveDuration - minMoveDuration;
     int actualDuration = (arc4random() % rangeDuration) + minMoveDuration;
-
+    //int actualDuration = 2;
     // Create the actions
     //Create the actions(go until off the screen)
     //id actionMove = [CCMoveTo actionWithDuration:actualDuration position:ccp(_enemy.position.x,_enemy.position.y  -_enemy.contentSize.height/2)];

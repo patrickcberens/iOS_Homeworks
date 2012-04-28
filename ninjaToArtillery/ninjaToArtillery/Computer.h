@@ -8,6 +8,8 @@
 
 #import "Turret.h"
 
-@interface Computer : Turret
-
+@interface Computer : Turret{
+    
+}
+-(void)fireProjectile:(CGPoint)enemyLocation;
 @end

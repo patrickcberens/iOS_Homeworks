@@ -12,14 +12,14 @@
 @implementation Player
 
 
--(void)fireProjectile:(CGPoint)location{
+-(void)fireProjectile:(CGPoint)touchLocation{
     if(_nextProjectile != nil) return;
     
     _nextProjectile = [[CCSprite spriteWithFile:@"Projectile2.jpeg"] retain];
     _nextProjectile.position = _topTurret.position;
 
     //Rotate turret
-    CGPoint shootVector = ccpSub(location, _nextProjectile.position);
+    CGPoint shootVector = ccpSub(touchLocation, _nextProjectile.position);
     CGFloat shootAngle = ccpToAngle(shootVector);
     CGFloat cocosAngle;
     if(position == leftSide)

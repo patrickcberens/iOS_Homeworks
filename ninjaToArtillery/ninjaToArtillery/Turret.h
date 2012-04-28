@@ -8,29 +8,32 @@
 
 #import "cocos2d.h"
 #import "GameLayerDelegate.h"
-#import "Character.h"
 
-#define WIN_SCORE (5) //5 kills to win
-#define TOP_TURRET_OFFSET (19)
+#define WIN_SCORE (10)          //kills to win
+#define TOP_TURRET_OFFSET (19)  //top turret sprite slightly off-center of base
 
 typedef enum {
     leftSide,
     rightSide
 } PlayerPosition;
 
-@interface Turret : Character {
-    PlayerPosition position;
+@interface Turret : CCNode
+{
+    PlayerPosition position;        
     
+    //Sprites
     CCSprite *_baseTurret;
     CCSprite *_topTurret;
     
+    //Projectiles associated with this turret
     CCSprite *_nextProjectile;
     NSMutableArray *_projectiles;
     
-    
+    //Score and label
     CCLabelTTF *_scoreLabel;
     NSInteger _score;
     
+    //Delegate used to communicate with GameplayLayer
     id <GameLayerDelegate> gameLayerDelegate;
 }
 @property (retain) id gameLayerDelegate;

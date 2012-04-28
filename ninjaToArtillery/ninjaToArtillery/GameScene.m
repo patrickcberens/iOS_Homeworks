@@ -13,9 +13,22 @@
 
 -(id)init{
     if((self = [super init]) != nil){
-        GameplayLayer *gameplayLayer = [GameplayLayer node];
+        gameplayLayer = [GameplayLayer node];
         [self addChild:gameplayLayer z:0];
     }
     return self;
+}
+-(id)initWithGameType:(GameType)gameType{
+    if((self = [super init]) != nil){
+        //gameplayLayer = [GameplayLayer alloc];
+        //[gameplayLayer initWithType:gameType];
+        gameplayLayer = [GameplayLayer node];
+        [gameplayLayer setGameType:gameType];
+        [self addChild:gameplayLayer z:0];
+    }
+    return self;    
+}
+-(void)setOpponentType:(GameType)gameType{
+    [gameplayLayer setGameType:gameType];
 }
 @end

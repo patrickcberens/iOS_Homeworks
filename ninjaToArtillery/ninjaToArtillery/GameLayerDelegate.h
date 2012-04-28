@@ -9,8 +9,8 @@
 
 @protocol GameLayerDelegate <NSObject>
 
+//Protocol responsible for sending messages to GameplayLayer
 @required
-//-(void)finishShoot:(CCSprite*)nextProjectile;
 -(void)addChild:(CCNode*)node z:(NSInteger)z;
 -(void)removeChild:(CCNode*)node cleanup:(BOOL)cleanup;
 -(void)addEnemy:(CCNode*)node;
