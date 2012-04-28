@@ -17,7 +17,7 @@
     int minMoveDuration;
     int maxMoveDuration;
     
-    id <GameLayerDelegate> gameLayerDelegate;
+    id <GameLayerDelegate> gameLayerDelegate;   //passes msg to gameplay layer
 }
 @property (retain) id gameLayerDelegate;
 

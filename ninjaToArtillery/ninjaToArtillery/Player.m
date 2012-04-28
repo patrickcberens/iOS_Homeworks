@@ -8,10 +8,15 @@
 
 #import "Player.h"
 
+/*
+ * Human Player
+ *   -Responsible for firing projectile, called by Gameplay Layer
+ */
 
 @implementation Player
 
-
+//Calculates offscreen location
+//-Then rotates and fires.
 -(void)fireProjectile:(CGPoint)touchLocation{
     if(_nextProjectile != nil) return;
     
@@ -41,6 +46,7 @@
     CGFloat rotationSpeed = 0.5/180;   //0.5 seconds to rotate 180 degrees
     CGFloat rotationDuration = fabs(rotateDifference * rotationSpeed);
     
+    //Rotate to proper position
     [_topTurret runAction:[CCSequence actions:
                            [CCRotateTo actionWithDuration:rotationDuration angle:cocosAngle],
                            [CCCallFunc actionWithTarget:self selector:@selector(rotationFinished)],

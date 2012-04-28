@@ -16,6 +16,8 @@
 @implementation GameplayLayer
 
 
+//Performs collision detection and checks if anyone has won.
+//--Is called whenever it can be(by CCDirector)
 -(void)update:(ccTime)dt{
     //Left Update
     [_leftPlayer detectProjectileCollisions:_enemies];
@@ -44,7 +46,17 @@
     }
 }
 
+//Fire once towards where expect enemy to be(estimation)
+//--Fires every 1.5 seconds.
+-(void)computerFire:(ccTime)dt{
+    if(_enemies.count > 0){
+        Enemy *enemy = [_enemies objectAtIndex:_enemies.count-1];
+        
+        [_rightComputer fireProjectile:enemy.position];
+    }
+}
 
+//----Enemy Methods--------------------------------
 -(void)addEnemy:(CCNode *)node{
     [_enemies addObject:(CCSprite *)node];
     
@@ -58,6 +70,13 @@
     [enemy initEnemyWithFilename:@"Target_Jet_Blue_mod.png"];
     [enemy spawnEnemy];
 }
+-(void)enemySpawn:(ccTime)dt{
+    [self addTarget];
+}
+
+
+//----------Touch Methods-----------------------------
+//NOTE: Only detects one touch at a time..maybe use Set vs UITouch...
 -(void) registerWithTouchDispatcher
 {
 	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
@@ -66,6 +85,9 @@
 	return YES;
 }
 
+//When touch ended, fires projectile towards point
+//--If human vs human, fires from turret closest to finger
+//--If human vs computer, fires from left turret always
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     
     //Get touch location
@@ -87,19 +109,6 @@
     [[SimpleAudioEngine sharedEngine] playEffect:@"pew-pew-lei.caf"];
 }
 
--(void)enemySpawn:(ccTime)dt{
-    [self addTarget];
-}
-
-//Fire once towards where expect enemy to be(estimation)
--(void)computerFire:(ccTime)dt{
-    if(_enemies.count > 0){
-        Enemy *enemy = [_enemies objectAtIndex:_enemies.count-1];
-        
-        [_rightComputer fireProjectile:enemy.position];
-    }
-}
-
 //Setup based upon whether the game is human vs human or human vs computer
 //-Allocates right turret sprite, if computer schedules an event to fire
 //--Called from MenuScene
@@ -119,6 +128,8 @@
         [self schedule:@selector(computerFire:) interval:1.5];
     }
 }
+
+//Initializes layer
 -(id) init
 {
 	// always call "super" init
@@ -155,6 +166,7 @@
     ccDrawLine(ccp(winSize.width/2.0, winSize.height), ccp(winSize.width/2.0, 0));
 }
 
+//Release memory
 - (void) dealloc
 {
 	[super dealloc];

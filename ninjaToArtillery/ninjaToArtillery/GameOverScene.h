@@ -8,7 +8,6 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "MenuScene.h"
-//#import "GameplayLayer.h"
 
 @interface GameOverLayer : CCLayerColor{
     CCLabelTTF *_label;

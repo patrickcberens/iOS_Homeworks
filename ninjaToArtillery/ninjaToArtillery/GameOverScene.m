@@ -8,7 +8,11 @@
 
 #import "GameOverScene.h"
 
-
+/*
+ * The Game over scene...just says game over and who won. Then after 3 seconds
+ *    returns to Main Menu
+ *
+ */
 
 @implementation GameOverScene
 @synthesize layer = _layer;
@@ -33,6 +37,8 @@
 @synthesize label = _label;
 
 -(id) init{
+    
+    //Create label with winner, setup action to run in 3 seconds
     if(self=[super initWithColor:ccc4(255,255,255,255)]) {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         self.label = [CCLabelTTF labelWithString: @"" fontName:@"Arial" fontSize:32];
@@ -47,6 +53,7 @@
     return self;
 }
 
+//Replace scene with MenuScene
 -(void)gameOverDone{
     [[CCDirector sharedDirector] replaceScene:[MenuScene node]];
 }

@@ -8,12 +8,21 @@
 
 #import "Enemy.h"
 
+/*
+ * Main method for enemies whether FighterPlane or something else
+ *  -Acts as a sort of controller for all Enemy classes
+ *   -Information being passed to gameplay layer must pass through here(protocol)
+ *  -All player/computer similarities abstracted to here
+ *
+ */
+
 @implementation Enemy
 
 @synthesize gameLayerDelegate;
 
+//Called when enemy off screen
+//-Removes enemy from scene and array.
 -(void)enemyMoveFinished:(id)sender{
-    //NSLog(@"Player: spriteMoveFinished");
     CCSprite *sprite = (CCSprite *)sender;
     [[self gameLayerDelegate]removeEnemy:sprite];
     
@@ -39,7 +48,6 @@
         int maxX = winSize.width - _enemy.contentSize.width/2;
         int rangeX = maxX - minX;
         int actualX = (arc4random() % rangeX) + minX;
-        //int actualX = 200;
         
         // Create the _enemy slightly off-screen along the right edge,
         // and along a random position along the X axis as calculated above

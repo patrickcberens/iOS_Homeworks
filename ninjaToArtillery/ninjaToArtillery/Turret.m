@@ -8,10 +8,19 @@
 
 #import "Turret.h"
 
+/*
+ * Main method for turrets whether Player or Computer
+ *  -Acts as a sort of controller for Players and Computers
+ *   -Information being passed to gameplay layer must pass through here(protocol)
+ *  -All player/computer similarities abstracted to here
+ *
+ */
 @implementation Turret
 
 @synthesize gameLayerDelegate;
 
+//Called when rotation is finished.
+//--Creates projectile.
 -(void)rotationFinished{
     [[self gameLayerDelegate] addChild:_nextProjectile z:1];
     [_projectiles addObject:_nextProjectile];
@@ -19,6 +28,8 @@
     [_nextProjectile release];
     _nextProjectile = nil;
 }
+//Called when projectile is off screen.
+//--Removes projectile from scene and array.
 -(void)projectileMoveFinished:(id)sender{
     CCSprite *sprite = (CCSprite *)sender;
     [_projectiles removeObject:sprite];
@@ -27,6 +38,9 @@
     
 }
 
+//Detects if a projectile for this turrent has collided with an enemy
+//--Draws box around all, then detects of collide(AABB)
+//---Inefficient and not that accurate, but sufficient for our purposes.
 -(void)detectProjectileCollisions:(NSMutableArray*)enemies{
     NSMutableArray *projectilesToDelete = [[NSMutableArray alloc] init];
 
@@ -71,6 +85,9 @@
     [projectilesToDelete release];
 
 }
+
+//Updates the score after collisions detected
+//--Tells whether turret has won.
 -(BOOL)updateScore{
     NSString *scoreText = [NSString stringWithFormat:@"Score: %d/%d", _score, WIN_SCORE];
     [_scoreLabel setString:scoreText];
@@ -79,6 +96,7 @@
     return NO;
 }
 
+//Initializes a turret
 -(id)initPlayerWithPosition:(PlayerPosition) pos
 {
     if((self = [super init]) != nil){

@@ -8,8 +8,15 @@
 
 #import "Computer.h"
 
+/*
+ * Computer Player
+ *   -Responsible for firing projectile, called by Gameplay Layer
+ */
+
 @implementation Computer
 
+//Estimates where enemy will be, then calculates offscreen location
+//-Then rotates and fires.
 -(void)fireProjectile:(CGPoint)enemyLocation{
     if(_nextProjectile != nil) return;
     
@@ -20,8 +27,12 @@
     
     CGPoint fireToPosition = enemyLocation;
     
+    //Estimates where enemy will be based upon how far away it is
+    //--Scales by a factor of 2..works suprisingly well, even with varying enemy
+    //   speeds.
+    //--Tested and tuned using x=100 as baseline.
     CGFloat xDistance = abs(_nextProjectile.position.x - fireToPosition.x);
-    fireToPosition.y -= xDistance/2;    //x=100
+    fireToPosition.y -= xDistance/2;
 
     
     //Rotate turret

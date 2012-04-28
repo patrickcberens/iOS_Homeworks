@@ -10,8 +10,6 @@
 #import "GameScene.h"
 #import "cocos2d.h"
 
-@interface MenuScene : CCScene {
-    GameScene *nextScene;
-}
+@interface MenuScene : CCScene 
 
 @end

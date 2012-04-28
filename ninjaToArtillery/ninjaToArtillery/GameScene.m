@@ -8,6 +8,9 @@
 
 #import "GameScene.h"
 
+/*
+ * Scene for gameplay. Contains one layer called gameplayLayer.
+ */
 
 @implementation GameScene
 
@@ -20,8 +23,6 @@
 }
 -(id)initWithGameType:(GameType)gameType{
     if((self = [super init]) != nil){
-        //gameplayLayer = [GameplayLayer alloc];
-        //[gameplayLayer initWithType:gameType];
         gameplayLayer = [GameplayLayer node];
         [gameplayLayer setGameType:gameType];
         [self addChild:gameplayLayer z:0];

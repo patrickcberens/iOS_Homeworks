@@ -10,6 +10,9 @@
 @protocol GameLayerDelegate <NSObject>
 
 //Protocol responsible for sending messages to GameplayLayer
+//--Acts as a controller for the turret and enemy
+//--Tells layer when to remove or add children to the scene
+//--Tells layer when to add or remove an enemy from the array
 @required
 -(void)addChild:(CCNode*)node z:(NSInteger)z;
 -(void)removeChild:(CCNode*)node cleanup:(BOOL)cleanup;
