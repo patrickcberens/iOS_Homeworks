@@ -13,7 +13,9 @@
 -(void)fireProjectile:(CGPoint)enemyLocation{
     if(_nextProjectile != nil) return;
     
-    _nextProjectile = [[CCSprite spriteWithFile:@"Projectile2.jpeg"] retain];
+    //_nextProjectile = [[CCSprite spriteWithFile:@"Projectile2.jpeg"] retain];
+    _nextProjectile = [[CCSprite spriteWithFile:@"ProjectilesRound.png"] retain];
+    [_nextProjectile setScale:0.5];
     _nextProjectile.position = _topTurret.position;
     
     CGPoint fireToPosition = enemyLocation;

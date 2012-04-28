@@ -138,6 +138,7 @@
 		CD8D9DA71524FF25005E55F2 /* Projectile2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CD8D9DA61524FF25005E55F2 /* Projectile2.jpeg */; };
 		CD8D9DA91524FF2D005E55F2 /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = CD8D9DA81524FF2D005E55F2 /* pew-pew-lei.caf */; };
 		CDD0DCD7154B6D1700F72A4D /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD0DCD6154B6D1700F72A4D /* MenuScene.m */; };
+		CDD0DCDD154BC02B00F72A4D /* ProjectilesRound.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD0DCDC154BC02B00F72A4D /* ProjectilesRound.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -401,6 +402,7 @@
 		CD8D9DA81524FF2D005E55F2 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pew-pew-lei.caf"; sourceTree = "<group>"; };
 		CDD0DCD5154B6D1700F72A4D /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
 		CDD0DCD6154B6D1700F72A4D /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
+		CDD0DCDC154BC02B00F72A4D /* ProjectilesRound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectilesRound.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -499,6 +501,7 @@
 				CD8A9E21153F8B3A002DD4A4 /* Player2_mod.png */,
 				CD8A9E27153F9B3C002DD4A4 /* Turret_Bottom.png */,
 				CD8A9E25153F97D4002DD4A4 /* Turret_Top.png */,
+				CDD0DCDC154BC02B00F72A4D /* ProjectilesRound.png */,
 				CD8A9E29153FAF16002DD4A4 /* Target_Jet_Blue_mod.png */,
 				CD8D9DA61524FF25005E55F2 /* Projectile2.jpeg */,
 				CD8B33AE1525019200A69292 /* Target.png */,
@@ -891,6 +894,7 @@
 				CD8A9E26153F97D4002DD4A4 /* Turret_Top.png in Resources */,
 				CD8A9E28153F9B3C002DD4A4 /* Turret_Bottom.png in Resources */,
 				CD8A9E2A153FAF16002DD4A4 /* Target_Jet_Blue_mod.png in Resources */,
+				CDD0DCDD154BC02B00F72A4D /* ProjectilesRound.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
